@@ -17,6 +17,7 @@ spec:
       containers:
       - name: frontend
         image: jensneuse/k8s-demo:2.0.0
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
           port: 80

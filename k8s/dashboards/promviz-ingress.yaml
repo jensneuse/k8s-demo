@@ -15,5 +15,5 @@ spec:
       paths:
       - path:
         backend:
-          serviceName: promviz-front-promviz-front
-          servicePort: 8080
+          serviceName: promviz-promviz
+          servicePort: 9091

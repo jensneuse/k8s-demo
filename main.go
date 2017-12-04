@@ -62,11 +62,19 @@ func main() {
 			if err != nil {
 				fmt.Println(err.Error())
 				writer.WriteHeader(500)
-				writer.Write([]byte(fmt.Sprintf("Cannot connect to backend: %s\n", BACKEND_URL)))
 				return
 			}
 
 			writer.WriteHeader(_response.StatusCode)
+
+			if _response.StatusCode == http.StatusInternalServerError {
+				return
+			}
+
+			hostname, _ := os.Hostname()
+
+			writer.Write([]byte(fmt.Sprintf("\nFRONTEND: %s", hostname)))
+			writer.Write([]byte("\nBACKEND: "))
 
 			_, err = io.Copy(writer, _response.Body)
 			if err != nil {
@@ -83,11 +91,6 @@ func main() {
 			}
 
 			writer.Write(_bytes)
-
-			hostname, _ := os.Hostname()
-
-			writer.Write([]byte(fmt.Sprintf("\nFRONTEND: %s", hostname)))
-			writer.Write([]byte("\nBACKEND: "))
 		})
 
 	}

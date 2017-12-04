@@ -13,4 +13,4 @@ spec:
       version: 2.0.0
   httpReqRetries:
     simpleRetry:
-      attempts: 10
+      attempts: 5

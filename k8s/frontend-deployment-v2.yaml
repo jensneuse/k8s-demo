@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta1 # for versions before 1.8.0 use apps/v1beta1
 kind: Deployment
 metadata:
-  name: demo-frontend-deployment
+  name: demo-frontend-deployment-v2
 spec:
   selector:
     matchLabels:

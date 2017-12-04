@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: zipkin-ingress
+  namespace: istio-system
+  annotations:
+    kubernetes.io/ingress.class: "istio"
+spec:
+  tls:
+  - hosts:
+    - jensneuse.de
+    secretName: istio-ingress-certs
+  rules:
+  - host: zipkin.jensneuse.de
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: zipkin
+          servicePort: 9411

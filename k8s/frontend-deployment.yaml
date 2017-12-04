@@ -27,3 +27,5 @@ spec:
           value: "80"
         - name: IS_BACKEND
           value: "false"
+        - name: BACKEND_URL
+          value: "http://backend-service"

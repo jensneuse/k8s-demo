@@ -1,16 +1,22 @@
 apiVersion: config.istio.io/v1alpha2
 kind: RouteRule
 metadata:
-  name: frontend
+  name: backend
 spec:
+  match:
+    source:
+      name: frontend-service
   destination:
-    name: frontend-service
+    name: backend-service
   precedence: 1
   route:
   - labels:
       app: demo
-      role: frontend
-      version: 2.0.0
+      role: backend
+  httpFault:
+   abort:
+     percent: 50
+     httpStatus: 500
   httpReqRetries:
     simpleRetry:
       attempts: 10

@@ -58,19 +58,6 @@ func main() {
 
 		http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 
-			_bytes, err := httputil.DumpRequest(request, true)
-			if err != nil {
-				fmt.Println(err.Error())
-				return
-			}
-
-			writer.Write(_bytes)
-
-			hostname, _ := os.Hostname()
-
-			writer.Write([]byte(fmt.Sprintf("\nFRONTEND: %s", hostname)))
-			writer.Write([]byte("\nBACKEND: "))
-
 			_response, err := http.Get(BACKEND_URL)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -86,6 +73,21 @@ func main() {
 				fmt.Printf("Error copying from backend writer to frontend reader %s\n", err.Error())
 				return
 			}
+
+			writer.Write([]byte("\n\n"))
+
+			_bytes, err := httputil.DumpRequest(request, true)
+			if err != nil {
+				fmt.Println(err.Error())
+				return
+			}
+
+			writer.Write(_bytes)
+
+			hostname, _ := os.Hostname()
+
+			writer.Write([]byte(fmt.Sprintf("\nFRONTEND: %s", hostname)))
+			writer.Write([]byte("\nBACKEND: "))
 		})
 
 	}

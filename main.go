@@ -7,7 +7,6 @@ import (
 	"os"
 	"io"
 	"strconv"
-	"net/http/httputil"
 )
 
 var (
@@ -58,13 +57,13 @@ func main() {
 
 		http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 
-			_bytes, err := httputil.DumpRequest(request, true)
+			/*_bytes, err := httputil.DumpRequest(request, true)
 			if err != nil {
 				fmt.Println(err.Error())
 				return
 			}
 
-			writer.Write(_bytes)
+			writer.Write(_bytes)*/
 
 			hostname, _ := os.Hostname()
 

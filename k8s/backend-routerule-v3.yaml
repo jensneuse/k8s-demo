@@ -17,6 +17,3 @@ spec:
    abort:
      percent: 50
      httpStatus: 500
-  httpReqRetries:
-    simpleRetry:
-      attempts: 10

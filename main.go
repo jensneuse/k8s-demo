@@ -74,9 +74,12 @@ func main() {
 			_response, err := http.Get(BACKEND_URL)
 			if err != nil {
 				fmt.Println(err.Error())
+				writer.WriteHeader(500)
 				writer.Write([]byte(fmt.Sprintf("Cannot connect to backend: %s\n", BACKEND_URL)))
 				return
 			}
+
+			writer.WriteHeader(_response.StatusCode)
 
 			_, err = io.Copy(writer, _response.Body)
 			if err != nil {

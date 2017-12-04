@@ -1,0 +1,18 @@
+frontend:
+  image: jensneuse/k8s-demo
+  ports:
+    - 8080:8080
+  environment:
+    IS_BACKEND: "false"
+    HOST: "0.0.0.0"
+    PORT: "8080"
+    BACKEND_URL: "http://backend:1338"
+  links:
+    - backend
+
+backend:
+  image: jensneuse/k8s-demo
+  environment:
+    IS_BACKEND: "true"
+    HOST: "0.0.0.0"
+    PORT: "1338"

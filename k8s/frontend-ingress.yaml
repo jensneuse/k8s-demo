@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+  annotations:
+    kubernetes.io/ingress.class: "istio"
+spec:
+  tls:
+  - hosts:
+    - jensneuse.de
+    secretName: istio-ingress-certs
+  rules:
+  - host: demo.jensneuse.de
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: frontend-service
+          servicePort: 80

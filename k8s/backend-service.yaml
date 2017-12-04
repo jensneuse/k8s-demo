@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: backend-service
-  app: demo
 spec:
   selector:
     app: demo

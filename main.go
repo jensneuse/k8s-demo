@@ -76,7 +76,9 @@ func main() {
 					}
 			}
 
-			_response, err := http.Client{}.Do(_req)
+			client := http.Client{}
+
+			_response, err := client.Do(_req)
 			if err != nil {
 				fmt.Println(err.Error())
 				writer.WriteHeader(500)

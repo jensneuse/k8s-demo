@@ -88,8 +88,8 @@ func main() {
 		http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 
 			urls := strings.Split(BACKEND_URL, ",")
-			//responses := fanIn(multiGenerateBlocking(request, urls...)...)
-			responses := multiGenerateSerial(request, urls...)
+			responses := fanIn(multiGenerateBlocking(request, urls...)...)
+			//responses := multiGenerateSerial(request, urls...)
 
 			hostname, _ := os.Hostname()
 

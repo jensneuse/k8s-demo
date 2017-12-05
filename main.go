@@ -15,6 +15,15 @@ var (
 	PORT          = os.Getenv("PORT")
 	IS_BACKEND, _ = strconv.ParseBool(os.Getenv("IS_BACKEND"))
 	BACKEND_URL   = os.Getenv("BACKEND_URL")
+	HEADERS       = []string{
+		"x-request-id",
+		"x-b3-traceid",
+		"x-b3-spanid",
+		"x-b3-parentspanid",
+		"x-b3-parentspanid",
+		"x-b3-flags",
+		"x-ot-span-context",
+	}
 )
 
 func main() {
@@ -58,7 +67,16 @@ func main() {
 
 		http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 
-			_response, err := http.Get(BACKEND_URL)
+			_req, _ := http.NewRequest("GET", BACKEND_URL, nil)
+
+			for _,headerKey := range HEADERS {
+					headerValue := request.Header.Get(headerKey)
+					if headerValue != "" {
+						_req.Header.Set(headerKey,headerValue)
+					}
+			}
+
+			_response, err := http.Client{}.Do(_req)
 			if err != nil {
 				fmt.Println(err.Error())
 				writer.WriteHeader(500)

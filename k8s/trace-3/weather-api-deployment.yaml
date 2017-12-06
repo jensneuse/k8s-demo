@@ -16,14 +16,14 @@ spec:
     spec:
       containers:
       - name: weather-api
-        image: jensneuse/k8s-demo:3.0.0
+        image: jensneuse/k8s-demo:4.0.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
           port: 80
         env:
         - name: NAME
-          value: "WeatherApi.v2"
+          value: "WeatherApi.V1"
         - name: HOST
           value: "0.0.0.0"
         - name: PORT

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: renderine
-        image: jensneuse/k8s-demo:3.0.0
+        image: jensneuse/k8s-demo:4.0.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80

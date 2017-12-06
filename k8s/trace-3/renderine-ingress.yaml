@@ -10,7 +10,7 @@ spec:
     - jensneuse.de
     secretName: istio-ingress-certs
   rules:
-  - host: t-online.v2.jensneuse.de
+  - host: t-online.v3.jensneuse.de
     http:
       paths:
       - path:

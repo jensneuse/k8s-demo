@@ -11,7 +11,7 @@ spec:
   precedence: 1
   route:
   - labels:
-      app: demo
+      app: demo2
       role: backend
   httpFault:
    abort:

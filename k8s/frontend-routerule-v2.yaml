@@ -9,11 +9,11 @@ spec:
   route:
   - weight: 90
     labels:
-      app: demo
+      app: demo2
       role: frontend
       version: 1.0.0
   - weight: 10
     labels:
-      app: demo
+      app: demo2
       role: frontend
       version: 2.0.0

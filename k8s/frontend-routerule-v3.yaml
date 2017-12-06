@@ -8,6 +8,6 @@ spec:
   precedence: 1
   route:
   - labels:
-      app: demo
+      app: demo2
       role: frontend
       version: 2.0.0

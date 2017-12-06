@@ -10,7 +10,7 @@ spec:
     - jensneuse.de
     secretName: istio-ingress-certs
   rules:
-  - host: demo.jensneuse.de
+  - host: demo2.jensneuse.de
     http:
       paths:
       - path:

@@ -22,10 +22,12 @@ spec:
           port: 80
         env:
         - name: NAME
-          value: "HorrorskopeExternalApi.v2 by @adrian mit Cache!!11"
+          value: "HorrorskopeExternalApi.v2"
         - name: HOST
           value: "0.0.0.0"
         - name: PORT
           value: "80"
         - name: IS_BACKEND
           value: "true"
+        - name: BACKEND_LATENCY
+          value: "1"

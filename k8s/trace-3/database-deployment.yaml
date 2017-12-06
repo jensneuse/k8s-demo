@@ -22,10 +22,12 @@ spec:
           port: 80
         env:
         - name: NAME
-          value: "Database.v2 optimized by@Nils 'ETL' Moraw"
+          value: "Database"
         - name: HOST
           value: "0.0.0.0"
         - name: PORT
           value: "80"
         - name: IS_BACKEND
           value: "true"
+        - name: BACKEND_LATENCY
+          value: "1"

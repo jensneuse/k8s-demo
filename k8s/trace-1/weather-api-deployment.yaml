@@ -1,0 +1,34 @@
+apiVersion: apps/v1beta1 # for versions before 1.8.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: weather-api
+spec:
+  selector:
+    matchLabels:
+      app: weather-api
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: demo
+        role: weather-api
+        version: 3.0.0
+    spec:
+      containers:
+      - name: weather-api
+        image: jensneuse/k8s-demo:3.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          port: 80
+        env:
+        - name: NAME
+          value: "WeatherApi.V1"
+        - name: HOST
+          value: "0.0.0.0"
+        - name: PORT
+          value: "80"
+        - name: IS_BACKEND
+          value: "false"
+        - name: BACKEND_URL
+          value: "http://weather-external-api"

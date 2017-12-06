@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: renderine
+spec:
+  type: ClusterIP
+  selector:
+    app: demo
+    role: renderine
+  ports:
+  - port: 80
+    name: http

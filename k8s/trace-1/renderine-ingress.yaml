@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: renderine
+  annotations:
+    kubernetes.io/ingress.class: "istio"
+spec:
+  tls:
+  - hosts:
+    - jensneuse.de
+    secretName: istio-ingress-certs
+  rules:
+  - host: t-online.v1.jensneuse.de
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: renderine
+          servicePort: 80

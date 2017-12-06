@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-namespace="trace-2"
+namespace="trace-3"
 
 istioctl kube-inject -f database-deployment.yaml | kubectl -n $namespace apply -f -
 kubectl -n $namespace apply -f database-service.yaml

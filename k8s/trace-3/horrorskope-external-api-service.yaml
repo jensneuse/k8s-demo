@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: horrorskope-external-api
+spec:
+  type: ClusterIP
+  selector:
+    app: demo
+    role: horrorskope-external-api
+  ports:
+  - port: 80
+    name: http

@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: demo
+    app: demo2
     role: horrorskope-api
   ports:
   - port: 80

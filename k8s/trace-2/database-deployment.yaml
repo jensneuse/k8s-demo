@@ -1,0 +1,33 @@
+apiVersion: apps/v1beta1 # for versions before 1.8.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: database
+spec:
+  selector:
+    matchLabels:
+      app: demo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: demo
+        role: database
+    spec:
+      containers:
+      - name: renderine
+        image: jensneuse/k8s-demo:3.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          port: 80
+        env:
+        - name: NAME
+          value: "Database"
+        - name: HOST
+          value: "0.0.0.0"
+        - name: PORT
+          value: "80"
+        - name: IS_BACKEND
+          value: "true"
+        - name: BACKEND_LATENCY
+          value: "1"

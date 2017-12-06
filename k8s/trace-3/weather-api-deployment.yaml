@@ -23,7 +23,7 @@ spec:
           port: 80
         env:
         - name: NAME
-          value: "WeatherApi.V1"
+          value: "WeatherApi.v2"
         - name: HOST
           value: "0.0.0.0"
         - name: PORT

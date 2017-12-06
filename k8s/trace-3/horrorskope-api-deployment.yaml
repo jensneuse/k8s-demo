@@ -23,7 +23,7 @@ spec:
           port: 80
         env:
         - name: NAME
-          value: "HorrorskopeApi.V1"
+          value: "HorrorskopeApi.v2"
         - name: HOST
           value: "0.0.0.0"
         - name: PORT

@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: horrorskope-api-deployment
+      app: demo
   replicas: 2
   template:
     metadata:

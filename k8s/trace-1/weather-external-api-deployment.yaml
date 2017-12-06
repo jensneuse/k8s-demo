@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: weather-external-api
+      app: demo
   replicas: 2
   template:
     metadata:
